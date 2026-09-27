@@ -1,0 +1,32 @@
+<section id="servicios" class="servicios-teaser section texture-espresso" appReveal>
+  <app-sparkle class="sparkle--float sparkle--bl" [size]="14" />
+  <app-sparkle class="sparkle--float sparkle--r2 sparkle--behind sparkle--dim" [size]="16" />
+  <app-sparkle class="sparkle--float sparkle--r8" [size]="10" />
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow"><app-sparkle [size]="14" />&nbsp;Lo que hacemos&nbsp;<app-sparkle [size]="14" /></span>
+      <h2>
+        <span class="title-line1">Todo lo que tu negocio necesita</span>
+        <span class="title-line2 text-script">para crecer en digital</span>
+      </h2>
+      <p>
+        Combinamos estrategia, creatividad y tecnología para construir una presencia digital
+        que realmente trabaje para tu negocio.
+      </p>
+    </div>
+
+    <div class="servicios-teaser__grid card-carousel">
+      @for (servicio of servicios; track servicio.numero) {
+        <article class="card-light servicios-teaser__card" appTilt3d>
+          <div class="servicios-teaser__badge">{{ servicio.numero }}</div>
+          <h3>{{ servicio.titulo }}</h3>
+          <p>{{ servicio.descripcion }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="servicios-teaser__cta">
+      <a routerLink="/servicios" class="btn btn-primary">Ver todos los servicios y paquetes →</a>
+    </div>
+  </div>
+</section>

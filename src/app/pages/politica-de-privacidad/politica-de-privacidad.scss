@@ -1,0 +1,47 @@
+.politica {
+  padding-top: calc(var(--header-height) + 48px);
+  background-color: var(--color-fill-light);
+}
+
+.politica__inner {
+  max-width: 760px;
+  background-color: var(--color-crema);
+  color: var(--color-espresso);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: clamp(32px, 6vw, 64px);
+
+  h1 {
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+    margin: 40px 0 12px;
+  }
+
+  p {
+    font-size: 0.97rem;
+    line-height: 1.75;
+    opacity: 0.88;
+  }
+
+  a {
+    color: var(--color-terracota);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-terracota-hover);
+    }
+  }
+}
+
+.politica__updated {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.65;
+  margin-bottom: 32px;
+}

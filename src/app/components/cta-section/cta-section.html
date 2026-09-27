@@ -1,0 +1,13 @@
+<section id="contacto" class="cta-section" appReveal>
+  <app-sparkle class="sparkle--float sparkle--tl sparkle--accent" variant="flare" [size]="48" />
+  <app-sparkle class="sparkle--float sparkle--br" [size]="14" />
+  <div class="container cta-section__inner">
+    <span class="eyebrow">{{ eyebrow() }}</span>
+    <h2>{{ heading() }}</h2>
+    <p>{{ subtext() }}</p>
+    <a href="https://wa.me/14077156067" target="_blank" rel="noopener noreferrer" class="btn btn-primary">{{
+      buttonText()
+    }}</a>
+    <p class="cta-section__tagline">{{ tagline() }}</p>
+  </div>
+</section>

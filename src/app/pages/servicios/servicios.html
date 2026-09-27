@@ -1,0 +1,132 @@
+<section class="servicios-tabs section" appReveal>
+  <div class="container">
+    <h1 class="visually-hidden">
+      Servicios de Influessence Agency: Estrategia de Contenido, Edición de Video y Diseño y Desarrollo Web
+    </h1>
+
+    <div class="servicios-tabs__nav" role="tablist">
+      @for (servicio of servicios; track servicio.numero; let i = $index) {
+        <button
+          type="button"
+          role="tab"
+          class="servicios-tabs__btn"
+          [class.is-active]="activeTab() === i"
+          [attr.aria-selected]="activeTab() === i"
+          (click)="selectTab(i)"
+        >
+          <span class="servicios-tabs__label">{{ servicio.titulo }}</span>
+        </button>
+      }
+    </div>
+
+    @for (servicio of servicios; track servicio.numero; let i = $index) {
+      @if (activeTab() === i) {
+        <div class="servicio-detalle" role="tabpanel">
+          <div class="servicio-detalle__header">
+            <h2>{{ servicio.titulo }}</h2>
+            <p class="servicio-detalle__subtitulo">{{ servicio.subtitulo }}</p>
+            <p class="servicio-detalle__desc">{{ servicio.descripcion }}</p>
+          </div>
+
+          <div class="servicio-detalle__grid card-carousel">
+            @for (precio of servicio.precios; track precio.titulo) {
+              <div class="precio-card" [class.precio-card--video]="servicio.numero === '02'" appTilt3d>
+                <div class="precio-card__head">
+                  <div class="precio-card__info">
+                    <div class="precio-card__titulo">{{ precio.titulo }}</div>
+                    @if (precio.detalle) {
+                      <div class="precio-card__detalle">{{ precio.detalle }}</div>
+                    }
+                  </div>
+                  <div class="precio-card__monto">{{ precio.precio }}</div>
+                </div>
+
+                @if (precio.caracteristicas) {
+                  <ul class="precio-card__lista">
+                    @for (item of precio.caracteristicas; track item) {
+                      <li><app-sparkle class="precio-card__check" [size]="13" />{{ item }}</li>
+                    }
+                  </ul>
+                }
+
+                <a
+                  [href]="precio.stripeUrl || '#'"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary precio-card__cta"
+                >
+                  Comprar ahora
+                </a>
+              </div>
+            }
+          </div>
+
+          @if (servicio.servicioAdicional) {
+            <div class="servicio-adicional">
+              <div class="servicio-adicional__label">Servicio adicional</div>
+              <div class="precio-card" appTilt3d>
+                <div class="precio-card__head">
+                  <div class="precio-card__info">
+                    <div class="precio-card__titulo">{{ servicio.servicioAdicional.titulo }}</div>
+                    @if (servicio.servicioAdicional.detalle) {
+                      <div class="precio-card__detalle">{{ servicio.servicioAdicional.detalle }}</div>
+                    }
+                  </div>
+                  <div class="precio-card__monto">{{ servicio.servicioAdicional.precio }}</div>
+                </div>
+
+                @if (servicio.servicioAdicional.caracteristicas) {
+                  <ul class="precio-card__lista">
+                    @for (item of servicio.servicioAdicional.caracteristicas; track item) {
+                      <li><app-sparkle class="precio-card__check" [size]="13" />{{ item }}</li>
+                    }
+                  </ul>
+                }
+
+                <a
+                  [href]="servicio.servicioAdicional.stripeUrl || '#'"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary precio-card__cta"
+                >
+                  Comprar ahora
+                </a>
+              </div>
+            </div>
+          }
+
+          @if (servicio.extra || servicio.condiciones) {
+            <div class="servicio-detalle__footer">
+              @if (servicio.extra) {
+                <div class="servicio-detalle__extra">
+                  <div class="label">Todos los paquetes incluyen</div>
+                  <ul class="servicio-detalle__extra-lista">
+                    @for (item of servicio.extra; track item) {
+                      <li><app-sparkle class="precio-card__check" [size]="13" />{{ item }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+
+              @if (servicio.condiciones) {
+                <div class="condiciones-box">
+                  <div class="label">Condiciones</div>
+                  <ol>
+                    @for (condicion of servicio.condiciones; track condicion) {
+                      <li>{{ condicion }}</li>
+                    }
+                  </ol>
+                  @if (servicio.nota) {
+                    <div class="nota">{{ servicio.nota }}</div>
+                  }
+                </div>
+              }
+            </div>
+          }
+        </div>
+      }
+    }
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

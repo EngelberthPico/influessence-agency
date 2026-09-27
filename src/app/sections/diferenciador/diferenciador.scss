@@ -1,0 +1,68 @@
+.diferenciador {
+  position: relative;
+  background-color: var(--color-fill-light);
+  color: var(--color-espresso);
+  text-align: center;
+
+  .eyebrow {
+    display: inline-block;
+    color: var(--color-terracota);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin: 16px auto 28px;
+    max-width: 640px;
+    line-height: 1.25;
+  }
+}
+
+.diferenciador__lead {
+  font-size: 1rem;
+  opacity: 0.85;
+  line-height: 1.8;
+  margin: 0 auto 56px;
+  max-width: 480px;
+}
+
+.diferenciador__flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.diferenciador__step {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+
+  &.is-final {
+    color: var(--color-terracota);
+  }
+}
+
+.diferenciador__arrow {
+  color: var(--color-terracota);
+  font-size: 1.25rem;
+}
+
+.diferenciador__sparkle {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.diferenciador__quote {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+  margin: 0 auto;
+  max-width: 520px;
+  opacity: 0.9;
+}

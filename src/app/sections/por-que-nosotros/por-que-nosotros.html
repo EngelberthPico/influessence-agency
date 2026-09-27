@@ -1,0 +1,21 @@
+<section class="por-que section texture-espresso" appReveal>
+  <app-sparkle class="sparkle--float sparkle--br" [size]="16" />
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow"><app-sparkle [size]="14" />&nbsp;Por qué nosotros&nbsp;<app-sparkle [size]="14" /></span>
+      <h2>
+        <span class="title-line1">No solo hacemos que tu negocio se vea bien.</span>
+        <span class="title-line2 text-script">Hacemos que tenga sentido</span>
+      </h2>
+    </div>
+
+    <div class="por-que__grid card-carousel">
+      @for (razon of razones; track razon.titulo) {
+        <article class="card-light por-que__card" appTilt3d>
+          <h3>{{ razon.titulo }}</h3>
+          <p>{{ razon.descripcion }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

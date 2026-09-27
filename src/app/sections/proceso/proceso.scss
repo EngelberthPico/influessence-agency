@@ -1,0 +1,35 @@
+.proceso {
+  position: relative;
+  background-color: var(--color-espresso);
+  color: var(--color-crema);
+}
+
+.proceso__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 24px;
+}
+
+.proceso__step {
+  border-top: 3px solid var(--color-terracota);
+  padding-top: 22px;
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 0.88rem;
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+}
+
+.proceso__numero {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-terracota);
+  margin-bottom: 14px;
+}

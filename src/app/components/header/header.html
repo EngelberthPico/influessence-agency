@@ -1,0 +1,31 @@
+<header class="header" [class.header--scrolled]="isScrolled()">
+  <div class="header__bar">
+    <a routerLink="/" class="header__logo" (click)="goHome()">
+      <img src="assets/Logo_amarillo.webp" alt="Influessence" class="header__logo-img" width="108" height="72" />
+      <app-sparkle class="header__logo-sparkle" [size]="14" />
+      <span>Agency</span>
+    </a>
+
+    <nav class="header__nav" [class.header__nav--open]="isMenuOpen()">
+      <ul>
+        <li><a routerLink="/servicios" routerLinkActive="is-active" (click)="closeMenu()">Servicios</a></li>
+        <li><a routerLink="/" fragment="proceso" (click)="closeMenu()">Proceso</a></li>
+        <li><a routerLink="/" fragment="nosotros" (click)="closeMenu()">Nosotros</a></li>
+        <li><a routerLink="/" fragment="contacto" (click)="closeMenu()">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <button
+      type="button"
+      class="header__toggle"
+      [class.is-open]="isMenuOpen()"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen()"
+      aria-label="Abrir menú de navegación"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>

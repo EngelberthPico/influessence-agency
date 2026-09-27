@@ -1,0 +1,46 @@
+<section id="nosotros" class="sobre section texture-espresso" appReveal>
+  <app-sparkle class="sparkle--float sparkle--br" [size]="14" />
+  <app-sparkle class="sparkle--float sparkle--r1 sparkle--behind sparkle--dim" [size]="16" />
+  <app-sparkle class="sparkle--float sparkle--r9" [size]="10" />
+  <div class="container sobre__inner">
+    <div class="sobre__text">
+      <span class="eyebrow"><app-sparkle [size]="14" />&nbsp;Sobre nosotros&nbsp;<app-sparkle [size]="14" /></span>
+      <h2>Ayudamos a empresas y creadores a verse, comunicar y crecer mejor</h2>
+      <p>
+        Influessence Agency es una agencia de crecimiento digital enfocada en ayudar a
+        empresas y creadores de contenido a construir marcas más fuertes y una presencia
+        digital que genere oportunidades.
+      </p>
+      <p>
+        Combinamos estrategia, creatividad y tecnología para desarrollar soluciones que van
+        desde el contenido y la producción audiovisual hasta el diseño y desarrollo de páginas
+        web.
+      </p>
+      <p>
+        No se trata solamente de publicar más, tener una página bonita o seguir tendencias. Se
+        trata de construir un sistema digital que ayude a tu negocio a avanzar.
+      </p>
+    </div>
+
+    <div class="sobre__media" appTilt3d>
+      <div class="sobre__video-wrap" #videoWrap>
+        <video
+          #videoEl
+          class="sobre__video"
+          [poster]="posterSrc"
+          muted
+          playsinline
+          loop
+          preload="none"
+          aria-hidden="true"
+        >
+          <source #mp4Source type="video/mp4" />
+        </video>
+      </div>
+      <div class="sobre__badge">
+        <span class="sobre__badge-name">Fabiola Colmenares</span>
+        <span class="sobre__badge-role">CEO</span>
+      </div>
+    </div>
+  </div>
+</section>

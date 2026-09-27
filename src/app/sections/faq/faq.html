@@ -1,0 +1,27 @@
+<section id="faq" class="faq section texture-espresso" appReveal>
+  <app-sparkle class="sparkle--float sparkle--bl" [size]="16" />
+  <app-sparkle class="sparkle--float sparkle--r3 sparkle--behind sparkle--dim" [size]="14" />
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow"><app-sparkle [size]="14" />&nbsp;Preguntas frecuentes&nbsp;<app-sparkle [size]="14" /></span>
+      <h2>
+        <span class="title-line1">Lo que probablemente</span>
+        <span class="title-line2 text-script">quieres saber</span>
+      </h2>
+    </div>
+
+    <div class="faq__list">
+      @for (item of faqs; track item.q; let i = $index) {
+        <div class="faq__item" [class.is-open]="openIndex() === i">
+          <button type="button" class="faq__question" (click)="toggle(i)">
+            <span>{{ item.q }}</span>
+            <span class="faq__symbol" aria-hidden="true">{{ openIndex() === i ? '–' : '+' }}</span>
+          </button>
+          @if (openIndex() === i) {
+            <p class="faq__answer">{{ item.a }}</p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

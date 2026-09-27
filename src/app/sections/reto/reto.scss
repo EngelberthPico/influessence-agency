@@ -1,0 +1,29 @@
+.reto {
+  position: relative;
+  background-color: var(--color-espresso);
+  color: var(--color-crema);
+}
+
+.reto__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 24px;
+}
+
+.reto__card {
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 0.92rem;
+    opacity: 0.8;
+    margin-bottom: 0;
+  }
+}
+
+.reto__card-sparkle {
+  display: block;
+  margin-bottom: 22px;
+}

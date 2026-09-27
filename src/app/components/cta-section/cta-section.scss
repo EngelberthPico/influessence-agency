@@ -1,0 +1,45 @@
+.cta-section {
+  position: relative;
+  background-color: var(--color-fill-light);
+  color: var(--color-espresso);
+  padding: 100px 0;
+  text-align: center;
+
+  .eyebrow {
+    display: inline-block;
+    color: var(--color-terracota);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+
+.cta-section__inner {
+  max-width: 640px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: clamp(1.75rem, 4.2vw, 2.5rem);
+    margin: 16px auto 20px;
+    line-height: 1.25;
+  }
+
+  p {
+    opacity: 0.8;
+  }
+
+  > p:not(.cta-section__tagline) {
+    max-width: 480px;
+    margin: 0 auto 36px;
+  }
+}
+
+.cta-section__tagline {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 26px 0 0;
+  opacity: 0.75;
+}

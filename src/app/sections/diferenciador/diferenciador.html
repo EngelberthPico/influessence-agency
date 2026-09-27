@@ -1,0 +1,27 @@
+<section class="diferenciador section" appReveal>
+  <app-sparkle class="sparkle--float sparkle--tl sparkle--accent" variant="flare" [size]="48" />
+  <app-sparkle class="sparkle--float sparkle--r5" [size]="12" />
+  <div class="container">
+    <span class="eyebrow"><app-sparkle [size]="14" />&nbsp;Nuestra filosofía&nbsp;<app-sparkle [size]="14" /></span>
+    <h2>No hacemos contenido por hacer contenido</h2>
+    <p class="diferenciador__lead">
+      Una buena estrategia necesita contenido.<br />
+      Y una presencia digital necesita una estrategia&nbsp;detrás.<br />
+      Por eso conectamos todo.
+    </p>
+
+    <div class="diferenciador__flow">
+      @for (paso of pasos; track paso; let last = $last) {
+        <div class="diferenciador__step" [class.is-final]="last">{{ paso }}</div>
+        @if (!last) {
+          <div class="diferenciador__arrow">↓</div>
+        }
+      }
+    </div>
+
+    <app-sparkle [size]="20" class="diferenciador__sparkle" />
+    <p class="diferenciador__quote">
+      "Un ecosistema digital pensado para hacer avanzar tu negocio."
+    </p>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+<div class="hero-pin">
+  <div class="hero__backgrounds" aria-hidden="true">
+    @for (slide of slides; track slide.image; let i = $index) {
+      <div class="hero__bg" [class.is-active]="i === activeIndex()">
+        <picture>
+          <source
+            media="(max-width: 640px)"
+            [attr.srcset]="i === 0 || restUnlocked() ? slide.mobileImage : null"
+          />
+          <img
+            [attr.src]="i === 0 || restUnlocked() ? slide.image : null"
+            [attr.width]="slide.imageWidth"
+            [attr.height]="slide.imageHeight"
+            alt=""
+            [attr.fetchpriority]="i === 0 ? 'high' : null"
+            (load)="onFirstImageLoaded()"
+            (error)="onFirstImageLoaded()"
+          />
+        </picture>
+      </div>
+    }
+  </div>
+
+  <div class="hero-pin__content">
+    <section
+      class="hero"
+      role="region"
+      aria-roledescription="carrusel"
+      aria-label="Presentación principal"
+      tabindex="0"
+      (keydown)="onKeydown($event)"
+    >
+      @for (slide of slides; track slide.image; let i = $index) {
+        <div
+          class="hero__text"
+          [class.is-active]="i === activeIndex()"
+          [attr.aria-hidden]="i === activeIndex() ? null : 'true'"
+          [attr.inert]="i === activeIndex() ? null : ''"
+        >
+          <span class="hero__eyebrow"><app-sparkle [size]="14" />&nbsp;{{ slide.eyebrow }}&nbsp;<app-sparkle [size]="14" /></span>
+          <div class="hero__title">
+            <span class="hero__title-line1">{{ slide.titleLine1 }}</span>
+            <span class="hero__title-line2 text-script">{{ slide.titleLine2 }}</span>
+          </div>
+          <p>{{ slide.subtitle }}</p>
+          @if (slide.audience) {
+            <p class="hero__audience">{{ slide.audience }}</p>
+          }
+          @if (slide.ctaExternal) {
+            <a [href]="slide.ctaHref" target="_blank" rel="noopener noreferrer" class="btn btn-primary">{{ slide.ctaText }}</a>
+          } @else {
+            <a [routerLink]="slide.ctaHref" class="btn btn-primary">{{ slide.ctaText }}</a>
+          }
+        </div>
+      }
+
+      <h1 class="visually-hidden" aria-live="polite" aria-atomic="true">
+        {{ slides[activeIndex()].titleLine1 }} {{ slides[activeIndex()].titleLine2 }}
+      </h1>
+
+      <button type="button" class="hero__arrow hero__arrow--prev" (click)="onPrevClick()" aria-label="Diapositiva anterior">‹</button>
+      <button type="button" class="hero__arrow hero__arrow--next" (click)="onNextClick()" aria-label="Siguiente diapositiva">›</button>
+
+      <div class="hero__dots" role="tablist" aria-label="Seleccionar diapositiva">
+        @for (slide of slides; track slide.image; let i = $index) {
+          <button
+            type="button"
+            role="tab"
+            class="hero__dot"
+            [class.is-active]="i === activeIndex()"
+            [attr.aria-selected]="i === activeIndex() ? 'true' : 'false'"
+            [attr.aria-label]="'Ir a la diapositiva ' + (i + 1) + ' de ' + slides.length"
+            (click)="goTo(i)"
+          ></button>
+        }
+      </div>
+    </section>
+
+    <ng-content></ng-content>
+  </div>
+</div>

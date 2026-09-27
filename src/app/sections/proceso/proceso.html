@@ -1,0 +1,24 @@
+<section id="proceso" class="proceso section texture-espresso" appReveal>
+  <app-sparkle class="sparkle--float sparkle--tr" [size]="14" />
+  <app-sparkle class="sparkle--float sparkle--r4 sparkle--behind sparkle--dim" [size]="16" />
+  <app-sparkle class="sparkle--float sparkle--r7" [size]="10" />
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow"><app-sparkle [size]="14" />&nbsp;Cómo trabajamos&nbsp;<app-sparkle [size]="14" /></span>
+      <h2>
+        <span class="title-line1">Un proceso simple. Una estrategia</span>
+        <span class="title-line2 text-script">pensada para tu negocio</span>
+      </h2>
+    </div>
+
+    <div class="proceso__grid">
+      @for (paso of pasos; track paso.numero) {
+        <div class="proceso__step">
+          <div class="proceso__numero">{{ paso.numero }}</div>
+          <h3>{{ paso.titulo }}</h3>
+          <p>{{ paso.descripcion }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

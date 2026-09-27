@@ -1,0 +1,29 @@
+<section class="reto section texture-espresso" appReveal>
+  <app-sparkle class="sparkle--float sparkle--tr" [size]="16" />
+  <app-sparkle class="sparkle--float sparkle--r1 sparkle--behind sparkle--dim" [size]="14" />
+  <app-sparkle class="sparkle--float sparkle--r6" [size]="10" />
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow"><app-sparkle [size]="14" />&nbsp;El reto&nbsp;<app-sparkle [size]="14" /></span>
+      <h2>
+        <span class="title-line1">Estar en internet no significa</span>
+        <span class="title-line2 text-script">estar creciendo</span>
+      </h2>
+      <p>
+        Tener una página web, publicar en redes sociales o invertir en publicidad no es
+        suficiente. Tu negocio necesita <strong>una estrategia</strong> que conecte cada punto de tu presencia
+        digital y convierta esa atención en resultados.
+      </p>
+    </div>
+
+    <div class="reto__grid card-carousel">
+      @for (reto of retos; track reto.titulo) {
+        <article class="card-light reto__card" appTilt3d>
+          <app-sparkle class="reto__card-sparkle" [size]="18" />
+          <h3>{{ reto.titulo }}</h3>
+          <p>{{ reto.descripcion }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
