@@ -10,7 +10,7 @@ export const routes: Routes = [
     title: 'Influessence Agency | Creación de Contenido, Edición de Videos & Páginas Web',
     data: {
       description:
-        'Creamos estrategias de contenido para marcas y creadores. Desarrollamos parrillas de contenido, guiones listos para grabar, edición de video profesional y páginas web que convierten.',
+        'Creamos estrategias de contenido para marcas y creadores. Desarrollamos estrategias de contenido, guiones listos para grabar, edición de video profesional y páginas web que convierten.',
     },
   },
   {

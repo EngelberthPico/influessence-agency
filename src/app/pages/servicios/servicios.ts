@@ -41,7 +41,7 @@ export class Servicios {
         'Para marcas y creadores de contenido de cualquier nicho: cocina, beauty, bienes raíces, lifestyle, fitness y más. Diseñamos calendarios, ideas y guiones pensados para comunicar tu propuesta, conectar con tu audiencia y mantener una presencia constante. Nos enfocamos en la plataforma que más uses para crear tu contenido.',
       precios: [
         {
-          titulo: 'Parrilla Esencial',
+          titulo: 'Estrategia Esencial',
           detalle: '15 piezas (4 publicaciones/semana), idea + guión de cada video o carrusel',
           precio: '$259',
           caracteristicas: [
@@ -50,13 +50,13 @@ export class Servicios {
             'Idea y guión detallado de cada video o carrusel',
             'Calendario de contenido organizado y listo para grabar',
             'Ideas alineadas a tu marca y a tu audiencia',
-            'Ronda de ajustes sobre la parrilla antes de iniciar',
+            'Ronda de ajustes sobre la estrategia antes de iniciar',
             'Llamada personalizada de 30 minutos',
           ],
           stripeUrl: 'https://buy.stripe.com/28E9AT2FL0Fu4G533O93z06',
         },
         {
-          titulo: 'Parrilla Pro',
+          titulo: 'Estrategia Pro',
           detalle:
             '25 ideas (6 publicaciones/semana) + 5 guiones de video agresivo para pauta (usables también en feed)',
           precio: '$399',
@@ -72,10 +72,10 @@ export class Servicios {
           stripeUrl: 'https://buy.stripe.com/aFa9ATcgl87W8WlfQA93z04',
         },
         {
-          titulo: 'Parrilla Empresarial',
+          titulo: 'Estrategia Empresarial',
           detalle:
             '12 ideas (3 publicaciones/semana) + edición de 12 publicaciones al mes (3 por semana)',
-          precio: '$499',
+          precio: '$599',
           caracteristicas: [
             '12 ideas de contenido al mes',
             '3 publicaciones por semana',
@@ -85,7 +85,7 @@ export class Servicios {
             'Llamada personalizada de 1 hora',
             'Edición completa de los 12 videos incluidos: música, animaciones, textos y subtítulos, corrección de color',
           ],
-          stripeUrl: 'https://buy.stripe.com/6oU4gza8dgEs1tT0VG93z03',
+          stripeUrl: 'https://buy.stripe.com/3cI6oH1BHag48Wl8o893z0j',
         },
       ],
     },
@@ -115,19 +115,19 @@ export class Servicios {
         },
         {
           titulo: 'Pack 10 (10 videos)',
-          precio: '$250',
+          precio: '$350',
           detalle:
             'Perfecto para mantener una presencia constante en redes sociales durante todo el mes, con edición profesional en cada pieza.',
           caracteristicas: ['Edición estándar de video'],
-          stripeUrl: 'https://buy.stripe.com/4gM4gzdkp3RG6OdeMw93z01',
+          stripeUrl: 'https://buy.stripe.com/28E00j5RX3RG8Wl5bW93z0h',
         },
         {
           titulo: 'Pack 20 (20 videos)',
-          precio: '$475',
+          precio: '$600',
           detalle:
             'La opción con mejor precio por video, pensada para marcas y creadores que publican con alta frecuencia.',
           caracteristicas: ['Edición estándar de video'],
-          stripeUrl: 'https://buy.stripe.com/8x29ATdkpcocegF7k493z00',
+          stripeUrl: 'https://buy.stripe.com/8x2bJ1bch4VK2xX6g093z0i',
         },
       ],
       condiciones: [
