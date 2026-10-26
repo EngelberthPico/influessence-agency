@@ -1,59 +1,87 @@
-# InfluessenceAgency
+# Influessence Agency
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.5.
+Sitio web de **Influessence Agency** ([influessenceagency.com](https://influessenceagency.com)), una agencia de estrategia de contenido, edición de video y diseño y desarrollo web. El sitio está en español y dirigido a público de Estados Unidos.
 
-## Development server
+## Tecnologías
 
-To start a local development server, run:
+- **Angular 22.2.0** (standalone components, sin NgModules)
+- **TypeScript 6.0.2**
+- **RxJS 7.8**
+- **Express 5.1** — motor de renderizado en el servidor durante la compilación
 
-```bash
-ng serve
-```
+El proyecto usa el modo `outputMode: "static"` de Angular (`angular.json`), combinado con SSR (`src/server.ts`) para prerenderizar las páginas. El resultado de la compilación son archivos HTML, CSS y JS estáticos, listos para publicarse en cualquier hosting sin necesidad de un servidor Node en producción.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Requisitos
 
-## Code scaffolding
+- **Node.js**: `^22.22.3 || ^24.15.0 || >=26.0.0` (requerido por Angular CLI)
+- **npm**: `11.17.0` (ver campo `packageManager` en `package.json`)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Cómo correrlo en local
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Instalar dependencias:
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
-
-To build the project run:
+Levantar el servidor de desarrollo:
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+El sitio queda disponible en `http://localhost:4200/` y se recarga automáticamente al guardar cambios.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Compilar para producción:
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+El resultado compilado queda en `dist/influessence-agency/browser/`. Esos son los archivos que se publican.
 
-For end-to-end (e2e) testing, run:
+## Cómo publicar un cambio
 
-```bash
-ng e2e
-```
+1. Compilar el proyecto con `npm run build`.
+2. Tomar el contenido de `dist/influessence-agency/browser/`.
+3. Subir ese contenido al directorio público del hosting, reemplazando los archivos anteriores.
+4. Verificar que el sitio cargue correctamente en `https://influessenceagency.com`.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Estructura del proyecto
 
-## Additional Resources
+Dentro de `src/app/`:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **`pages/`** — páginas enrutadas del sitio:
+  - `home` — página principal; compone todas las secciones (hero, servicios, proceso, FAQ, etc.).
+  - `servicios` — página de paquetes y precios de los tres servicios (estrategia de contenido, edición de video, diseño y desarrollo web), con botones de pago/contacto.
+  - `politica-de-privacidad` — política de privacidad (uso de Google Analytics, cookies y procesamiento de pagos vía Stripe).
+- **`sections/`** — bloques de contenido que se insertan en las páginas:
+  - `hero` — carrusel principal de imágenes y llamado a la acción inicial.
+  - `reto` — tarjetas que describen los problemas comunes que resuelve la agencia (contenido sin dirección, web desactualizada, oportunidades perdidas).
+  - `servicios-teaser` — resumen de los tres servicios con enlace a la página de servicios.
+  - `diferenciador` — mensaje sobre el enfoque estratégico de la agencia ("no hacemos contenido por hacer contenido").
+  - `proceso` — pasos del proceso de trabajo con un cliente.
+  - `por-que-nosotros` — argumentos de por qué contratar a la agencia.
+  - `sobre-nosotros` — presentación del equipo, con video.
+  - `faq` — preguntas frecuentes en acordeón.
+- **`components/`** — piezas reutilizables en varias páginas: `header`, `footer`, `cta-section` (bloque de llamado a la acción final) y `whatsapp-button` (botón flotante de WhatsApp).
+- **`shared/`** — utilidades transversales: `seo.ts` (título/descripción por ruta), `meta-pixel.ts` (eventos del Meta Pixel), `reveal.ts` y `tilt-3d.ts` (animaciones al hacer scroll/hover) y `sparkle.ts` (decoración visual).
+
+## Dónde se edita cada cosa
+
+- **Precios y enlaces de pago (Stripe)**: `src/app/pages/servicios/servicios.ts` (propiedad `stripeUrl` de cada paquete; los enlaces son de `buy.stripe.com`, de uso público).
+- **Número y enlaces de WhatsApp**: aparecen en varios archivos con el mismo número `+14077156067` — `src/app/components/whatsapp-button/whatsapp-button.html`, `src/app/components/footer/footer.html`, `src/app/components/cta-section/cta-section.html`, `src/app/sections/hero/hero.ts` y `src/app/pages/servicios/servicios.ts`.
+- **Preguntas frecuentes**: `src/app/sections/faq/faq.ts` (arreglo `faqs`).
+- **Título y descripción de cada página**: `src/app/app.routes.ts` (propiedades `title` y `data.description` de cada ruta). El título y descripción de la página de inicio también deben actualizarse en `src/index.html` (metadatos `<title>`, `description`, Open Graph y Twitter) si cambian.
+- **`sitemap.xml` y `robots.txt`**: en `public/sitemap.xml` y `public/robots.txt`.
+
+## Medición y publicidad
+
+- **Google Tag Manager**: instalado en `src/index.html` (contenedor `GTM-5W6F2867`).
+- **Meta Pixel**: instalado en `src/index.html` (pixel `1367550412117051`) y controlado desde `src/app/shared/meta-pixel.ts`. Envía el evento `PageView` al cargar el sitio y al cambiar de ruta, y el evento `Contact` cada vez que alguien hace clic en un enlace de WhatsApp (lógica en `src/app/app.ts`).
+- El sitio incluye datos estructurados (JSON-LD de tipo `MarketingAgency`) y etiquetas Open Graph/Twitter para que los enlaces se vean bien al compartirse en redes sociales, ambos en `src/index.html`.
+
+## Mantenimiento recomendado
+
+- Revisar una vez al mes que el botón de WhatsApp, los enlaces de contacto y los enlaces de pago de Stripe funcionen correctamente.
+- Mantener las dependencias de `package.json` actualizadas.
